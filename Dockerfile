@@ -5,7 +5,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install wget
 RUN apt-get install xzdec
 RUN apt-get install texlive-fonts-recommended -y
-RUN texlive-fonts-recommended-doc -y
 RUN apt-get install texlive-plain-generic -y
 RUN apt-get install texlive-latex-recommended -y
 
