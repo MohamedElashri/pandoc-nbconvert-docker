@@ -1,17 +1,22 @@
 FROM jgoldfar/pandoc-docker-bibtex:latest
 
-RUN tlmgr init-usertree
-RUN tlmgr update --self 
-RUN tlmgr update texlive-scripts
-RUN tlmgr install scheme-full 
 
 
 # install python3 & pip
 RUN apt-get update -y && \
     apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
     python3-pip && \
+    xzdec && \
+    wget && \
     apt-get autoclean && apt-get --purge --yes autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+RUN tlmgr init-usertree
+RUN tlmgr update --self 
+RUN tlmgr update texlive-scripts
+RUN tlmgr install scheme-full 
+
 
 RUN pip3 install nbconvert
 
