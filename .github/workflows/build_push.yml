@@ -17,7 +17,7 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
       with:
-        image: melashri/pandoc-nbconvert-docker:latest
+        image: melashri/pandoc-nbconvert-docker
         registry: docker.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
