@@ -1,16 +1,19 @@
 FROM pandoc/ubuntu-latex:latest
 
+
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install wget
 RUN apt-get install xzdec
+RUN apt-get install texlive-fonts-recommended
+RUN texlive-fonts-recommended-doc
+RUN apt-get install texlive-plain-generic
 # install python3 & pip
 RUN apt-get update -y && \
     apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
     python3-pip && \
     apt-get autoclean && apt-get --purge --yes autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-
+    
 RUN tlmgr init-usertree
 RUN tlmgr update --self 
 RUN tlmgr update texlive-scripts
