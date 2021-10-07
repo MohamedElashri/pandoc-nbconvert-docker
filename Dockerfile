@@ -1,5 +1,8 @@
 FROM jgoldfar/pandoc-docker-bibtex:latest
 
+RUN tlmgr init-usertree
+RUN tlmgr update --self --verify-repo=none
+RUN tlmgr update texlive-scripts
 RUN tlmgr install scheme-full 
 
 
