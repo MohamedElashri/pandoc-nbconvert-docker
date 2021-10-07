@@ -1,20 +1,7 @@
 FROM jgoldfar/pandoc-docker-bibtex:latest
 
-RUN set -x \
-    && tlmgr init-usertree \ 
-    # Select closest mirror automatically: http://tug.org/texlive/doc/install-tl.html
+RUN tlmgr install scheme-full 
 
-    && tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet/ \ 
-    # Using latest TeX Live repository
-
-    && tlmgr update --self --verify-repo=none \ 
-    #update tlgmr 
-
-    && tlmgr update texlive-scripts \ 
-    # Solves "Cannot install ctex via tlmgr: "Unknown option: status-file" bug
-
-    && (tlmgr install --verify-repo=none scheme-full || true) \ 
-    # runs && tlmgr install scheme-ful  instllation
 
 # install python3 & pip
 RUN apt-get update -y && \
