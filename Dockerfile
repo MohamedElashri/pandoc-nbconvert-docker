@@ -1,13 +1,12 @@
 FROM jgoldfar/pandoc-docker-bibtex:latest
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-
+RUN apt-get wget
+RUN apt-get xzdec
 # install python3 & pip
 RUN apt-get update -y && \
     apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
     python3-pip && \
-    wget && \
-    xzdec && \
     apt-get autoclean && apt-get --purge --yes autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
