@@ -6,8 +6,8 @@ FROM jgoldfar/pandoc-docker-bibtex:latest
 RUN apt-get update -y && \
     apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
     python3-pip && \
-    xzdec && \
     wget && \
+    xzdec && \
     apt-get autoclean && apt-get --purge --yes autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
