@@ -1,8 +1,8 @@
 FROM pandoc/ubuntu-latex:latest
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get wget
-RUN apt-get xzdec
+RUN apt-get install wget
+RUN apt-get install xzdec
 # install python3 & pip
 RUN apt-get update -y && \
     apt-get install -y -o Acquire::Retries=10 --no-install-recommends \
