@@ -1,4 +1,4 @@
-FROM jgoldfar/pandoc-docker-bibtex:latest
+FROM pandoc/ubuntu-latex:latest
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get wget
