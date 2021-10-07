@@ -4,10 +4,10 @@ FROM pandoc/ubuntu-latex:latest
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install wget
 RUN apt-get install xzdec
-RUN apt-get install texlive-fonts-recommended
-RUN texlive-fonts-recommended-doc
-RUN apt-get install texlive-plain-generic
-RUN apt-get install texlive-latex-recommended
+RUN apt-get install texlive-fonts-recommended -y
+RUN texlive-fonts-recommended-doc -y
+RUN apt-get install texlive-plain-generic -y
+RUN apt-get install texlive-latex-recommended -y
 
 # install python3 & pip
 RUN apt-get update -y && \
