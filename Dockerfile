@@ -1,6 +1,6 @@
 FROM jgoldfar/pandoc-docker-bibtex:latest
 
-
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 # install python3 & pip
 RUN apt-get update -y && \
